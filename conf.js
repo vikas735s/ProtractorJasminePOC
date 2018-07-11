@@ -8,8 +8,8 @@ exports.config = {
     defaultTimeoutInterval: 30000
   },
   capabilities: {
-    'browserName': 'chrome',
-  },
+    browserName: 'chrome',
+    },
 
   onPrepare: function () {
     jasmine.getEnv().addReporter(
