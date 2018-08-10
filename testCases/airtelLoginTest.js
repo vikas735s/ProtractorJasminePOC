@@ -23,19 +23,15 @@ describe("A spec using beforeAll and afterAll", function () {
 
 	it('Verify title of Login Page', function () {
 		landingPage.clickLoginLink();
-	    pageTitle = 'Airtel Login : Pay Airtel Bill Online - Login Airtel My Account';
+		pageTitle = 'Airtel Login : Pay Airtel Bill Online - Login Airtel My Account';
 		expect(browser.getTitle()).toEqual(pageTitle);
-
 	});
 
 	it('Failed login with invalid credential', function () {
 		loginPage.enterTextMobNo_ServiceIdTextBox("9210936382");
 		loginPage.enterTextPasswordOTPTextBox("vikas");
 		loginPage.clickLoginButton();
-		console.log(loginPage.getErrMsgOnWngUsrNmeOrPswd());
-		logger().info("Out: Brilliant Earth HomePage Tests ");
-		logger().info(loginPage.getErrMsgOnWngUsrNmeOrPswd());
-		
+		expect(loginPage.getErrMsgOnWngUsrNmeOrPswd()).toEqual('The mobile number or password is incorrect, please try again.');
 	});
 
 });

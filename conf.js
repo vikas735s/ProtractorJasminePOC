@@ -10,7 +10,7 @@ exports.config = {
 	},
 
 	multiCapabilities: [{
-		browserName: 'firefox',
+		//	browserName: 'firefox',
 	}, {
 		browserName: 'chrome',
 	}],
@@ -27,7 +27,6 @@ exports.config = {
 			screenshotsSubfolder: 'images',
 			jsonsSubfolder: 'jsons',
 		}).getJasmine2Reporter());
-
 	},
 
 };

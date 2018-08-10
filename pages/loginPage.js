@@ -31,15 +31,7 @@ var loginPage = function () {
 	};
 
 	this.getErrMsgOnWngUsrNmeOrPswd = function () {
-		errMsgOnWngUsrNmeOrPswd.getText().then(function (text) {
-			console.log(text);
-			//errMsg = text;
-		});
-errMsg = "vikas";
-		return errMsg;
-	};
-
-
+		return errMsgOnWngUsrNmeOrPswd.getText();
+	}
 };
-
 module.exports = new loginPage();
