@@ -1,0 +1,7 @@
+{
+    "baseUrl": "https://www.airtel.in/",
+    "implicitlyWaitTimeout": "6000000",
+    "defaultTimeoutInterval": "2500000",
+    "getPageTimeout": "20000000",
+    "allScriptsTimeout": "250000000"
+}

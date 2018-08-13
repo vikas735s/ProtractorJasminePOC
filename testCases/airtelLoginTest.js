@@ -2,12 +2,13 @@ var logger = require('../utils/logger.js');
 var testData = require('../testAndConfigData/testData.json');
 var landingPage = require('../pages/landingPage.js');
 var loginPage = require('../pages/loginPage.js');
+var configData = require("../testAndConfigData/config.json");
 var pageTitle;
 
 describe("A spec using beforeAll and afterAll", function () {
 
 	function launchUrl() {
-		var appUrl = "https://www.airtel.in/";
+		var appUrl = configData.baseUrl;
 		browser.ignoreSynchronization = true;
 		browser.get(appUrl);
 	}
