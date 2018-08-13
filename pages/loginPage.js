@@ -1,8 +1,6 @@
 var logger = require('../utils/logger.js');
 
 var loginPage = function () {
-	var errMsg = '';
-
 	var loginTab = element(by
 		.xpath(".//ul[@id='loginSec']//a[text() = 'LOGIN']"));
 	var registrationTab = element(by

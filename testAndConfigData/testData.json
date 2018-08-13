@@ -1,0 +1,15 @@
+{
+    "airtelLoginTest": {
+        "landingPageTitleTest": {
+            "pageTitle": "Airtel: 4G| Prepaid | Postpaid | Broadband | Payments Bank| DTH | Online Store"
+        },
+        "loginPageTitleTest": {
+            "pageTitle": "Airtel Login : Pay Airtel Bill Online - Login Airtel My Account"
+        },
+        "failedloginTest": {
+            "userName": "9210936382",
+            "password": "vikas",
+            "errorMessage": "The mobile number or password is incorrect, please try again."
+        }
+    }
+}

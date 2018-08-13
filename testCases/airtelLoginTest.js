@@ -1,4 +1,5 @@
 var logger = require('../utils/logger.js');
+var testData = require('../testAndConfigData/testData.json');
 var landingPage = require('../pages/landingPage.js');
 var loginPage = require('../pages/loginPage.js');
 var pageTitle;
@@ -16,22 +17,25 @@ describe("A spec using beforeAll and afterAll", function () {
 	});
 
 	it('Verifying title of landing page', function () {
-		pageTitle = 'Airtel: 4G| Prepaid | Postpaid | Broadband | Payments Bank| DTH | Online Store';
+		pageTitle = testData.airtelLoginTest.landingPageTitleTest.pageTitle;
 		expect(browser.getTitle()).toEqual(pageTitle);
 		logger().info("Url is launched");
 	});
 
 	it('Verify title of Login Page', function () {
 		landingPage.clickLoginLink();
-		pageTitle = 'Airtel Login : Pay Airtel Bill Online - Login Airtel My Account';
+		pageTitle = testData.airtelLoginTest.loginPageTitleTest.pageTitle;
 		expect(browser.getTitle()).toEqual(pageTitle);
 	});
 
 	it('Failed login with invalid credential', function () {
-		loginPage.enterTextMobNo_ServiceIdTextBox("9210936382");
-		loginPage.enterTextPasswordOTPTextBox("vikas");
+		var userName = testData.airtelLoginTest.failedloginTest.userName;
+		var password = testData.airtelLoginTest.failedloginTest.password;
+		var errorMessage = testData.airtelLoginTest.failedloginTest.errorMessage;
+		loginPage.enterTextMobNo_ServiceIdTextBox(userName);
+		loginPage.enterTextPasswordOTPTextBox(password);
 		loginPage.clickLoginButton();
-		expect(loginPage.getErrMsgOnWngUsrNmeOrPswd()).toEqual('The mobile number or password is incorrect, please try again.');
+		expect(loginPage.getErrMsgOnWngUsrNmeOrPswd()).toEqual(errorMessage);
 	});
 
 });
