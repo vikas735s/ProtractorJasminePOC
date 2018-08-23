@@ -1,35 +1,36 @@
-var logger = require('../utils/logger.js');
+const Logger = require('../utils/logger.js');
+module.exports = class LoginPage {
 
-var loginPage = function () {
-	var loginTab = element(by
-		.xpath(".//ul[@id='loginSec']//a[text() = 'LOGIN']"));
-	var registrationTab = element(by
-		.xpath(".//ul[@id='loginSec']//a[text() = 'REGISTER']"));
-	var mobNo_ServiceIdTextBox = element(by.xpath(".//*[@id='number-one']"));
-	var passwordOTPTextBox = element(by.xpath(".//*[@id='pasword']"));
-	var loginButton = element(by.xpath(".//*[@id='loginButtonSpan']"));
-	var errMsgOnWngUsrNmeOrPswd = element(by.xpath(".//*[@id='mobNoField' and @class='error-msg']"));
-
-	this.clickLoginTab = function () {
-		loginTab.click();
+	constructor() {
+		this.loginTab = element(by
+			.xpath(".//ul[@id='loginSec']//a[text() = 'LOGIN']"));
+		this.registrationTab = element(by
+			.xpath(".//ul[@id='loginSec']//a[text() = 'REGISTER']"));
+		this.mobNo_ServiceIdTextBox = element(by.xpath(".//*[@id='number-one']"));
+		this.passwordOTPTextBox = element(by.xpath(".//*[@id='pasword']"));
+		this.loginButton = element(by.xpath(".//*[@id='loginButtonSpan']"));
+		this.errMsgOnWngUsrNmeOrPswd = element(by.xpath(".//*[@id='mobNoField' and @class='error-msg']"));
 	}
 
-	this.enterTextMobNo_ServiceIdTextBox = function (mobNo_ServiceId) {
-		mobNo_ServiceIdTextBox.clear();
-		mobNo_ServiceIdTextBox.sendKeys(mobNo_ServiceId);
+	clickLoginTab() {
+		this.loginTab.click();
 	}
 
-	this.enterTextPasswordOTPTextBox = function (passwordOTP) {
-		passwordOTPTextBox.clear();
-		passwordOTPTextBox.sendKeys(passwordOTP)
+	enterTextMobNo_ServiceIdTextBox(mobNo_ServiceId) {
+		this.mobNo_ServiceIdTextBox.clear();
+		this.mobNo_ServiceIdTextBox.sendKeys(mobNo_ServiceId);
 	}
 
-	this.clickLoginButton = function () {
-		loginButton.click();
+	enterTextPasswordOTPTextBox(passwordOTP) {
+		this.passwordOTPTextBox.clear();
+		this.passwordOTPTextBox.sendKeys(passwordOTP)
+	}
+
+	clickLoginButton() {
+		this.loginButton.click();
 	};
 
-	this.getErrMsgOnWngUsrNmeOrPswd = function () {
-		return errMsgOnWngUsrNmeOrPswd.getText();
+	getErrMsgOnWngUsrNmeOrPswd() {
+		return this.errMsgOnWngUsrNmeOrPswd.getText();
 	}
 };
-module.exports = new loginPage();

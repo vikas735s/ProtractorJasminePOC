@@ -1,11 +1,18 @@
-var landingPage = function() {
+const Logger = require('../utils/logger.js');
+const BasePage = require('./basePage.js');
+const WebDriverWaitUtils = require('../utils/webDriverWaitHelperUtils.js');
+module.exports = class LandingPage extends BasePage {
 
-	var loginLink = element(by
+	constructor() {
+		var uniqueEle = element(by.xpath(".//*[@id='airtelMegaMenu']//img"));
+		super(uniqueEle);
+		this.loginLink = element(by
 			.xpath(".//*[@href='https://www.airtel.in/s/selfcare/' and @class='icon-outlined-user color-red' ]"));
 
-	this.clickLoginLink = function() {
-		loginLink.click();
+	}
 
+	clickLoginLink() {
+		this.loginLink.click();
 	};
-};
-module.exports = new landingPage();
+
+}
