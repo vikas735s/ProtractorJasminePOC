@@ -7,7 +7,7 @@ let landingPage;
 let loginPage;
 var pageTitle;
 
-describe("A spec using beforeAll and afterAll", function () {
+describe("Test Suit To Test Login Functionality", function () {
 	browser.ignoreSynchronization = true;
 
 	function launchUrl() {
@@ -17,20 +17,20 @@ describe("A spec using beforeAll and afterAll", function () {
 		launchUrl();
 	});
 
-	it('Verifying title of landing page', function () {
+	it('Verifying title of landing page of Application', function () {
 		pageTitle = TestData.airtelLoginTest.landingPageTitleTest.pageTitle;
 		expect(browser.getTitle()).toEqual(pageTitle);
 		landingPage = new LandingPage();
 		Logger().info("Url is launched");
 	});
 
-	it('Verify title of Login Page', function () {
+	it('Verify title of Login Page of Application', function () {
 		landingPage.clickLoginLink();
 		pageTitle = TestData.airtelLoginTest.loginPageTitleTest.pageTitle;
 		expect(browser.getTitle()).toEqual(pageTitle);
 	});
 
-	it('Failed login with invalid credential', function () {
+	it('Verify that user should not able to login with invalid credential', function () {
 		loginPage = new LoginPage();
 		var userName = TestData.airtelLoginTest.failedloginTest.userName;
 		var password = TestData.airtelLoginTest.failedloginTest.password;
