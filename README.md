@@ -1,5 +1,5 @@
 # ProtractorJasminePOC
-Functional e2e testing framework using Protractor and jasmine using Page Object Model 
+Functional e2e testing framework using Protractor and jasmine using Page Object Model. 
 Steps to execute 
 1. Install NodeJS
 2. Install git 
