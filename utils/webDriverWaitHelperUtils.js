@@ -3,7 +3,7 @@ const TestData = require('../testAndConfigData/testData.json');
 
 module.exports = class WebDriverWaitUtils {
 
-    waitForElement(elementLocator) {
+    static waitForElement(elementLocator) {
         Logger().info('explicit wait for element is called');
         let EC = ExpectedConditions;
         let condition = EC.visibilityOf(elementLocator);

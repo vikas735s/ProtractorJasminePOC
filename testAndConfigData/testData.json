@@ -7,9 +7,9 @@
             "pageTitle": "Airtel Login : Pay Airtel Bill Online - Login Airtel My Account"
         },
         "failedloginTest": {
-            "userName": "9210936382",
-            "password": "vikas",
-            "errorMessage": "The mobile number or password is incorrect, please try again."
+            "userName": "9310936362",
+            "password": "airtel@8909",
+            "errorMessage": "User not registered. Please register"
         }
     }
 }

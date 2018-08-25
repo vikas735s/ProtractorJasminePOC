@@ -6,7 +6,6 @@ module.exports = class BasePage {
         if (this.constructor == BasePage) {
             throw new Error("Abstract classes can't be instantiated.");
         }
-        this.wait = new WebDriverWait();
         this.isPageLoaded(uniqueEle);
     }
 
@@ -15,9 +14,10 @@ module.exports = class BasePage {
     }
 
     isPageLoaded(uniqueEle) {
-        this.wait.waitForElement(uniqueEle);
+        WebDriverWait.waitForElement(uniqueEle);
         uniqueEle.isPresent().then(function (isPresent) {
             if (isPresent) {
+                expect(isPresent).toBe(true);
                 Logger().info("Unique Element is Displayed");
             }
             else {

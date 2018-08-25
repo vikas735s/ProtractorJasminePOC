@@ -8,18 +8,22 @@ exports.config = {
 	getPageTimeout: configData.getPageTimeout,
 	framework: 'jasmine',
 	jasmineNodeOpts: {
-		defaultTimeoutInterval: configData.defaultTimeoutInterval
+		defaultTimeoutInterval: configData.defaultTimeoutInterval,
 	},
 
 	multiCapabilities: [{
 		//browserName: 'firefox',
 	}, {
 		browserName: 'chrome',
+		chromeOptions: {
+			'args': ['incognito']
+		}
 	}],
 
 	onPrepare: function () {
-		//browser.driver.manage().window().maximize();
+		browser.driver.manage().window().maximize();
 		browser.driver.manage().timeouts().implicitlyWait(configData.implicitlyWaitTimeout);
+		browser.manage().timeouts().pageLoadTimeout(configData.pageLoadTimeout);
 		jasmine.getEnv().addReporter(new HtmlReporter({
 			baseDirectory: 'report',
 			docTitle: 'Protractor Web Testing Report',

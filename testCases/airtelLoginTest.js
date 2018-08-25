@@ -2,19 +2,22 @@ const Logger = require('../utils/logger.js');
 const TestData = require('../testAndConfigData/testData.json');
 const LandingPage = require('../pages/landingPage.js');
 const LoginPage = require('../pages/loginPage.js');
+const HomePage = require('../pages/homePage.js');
 const ConfigData = require("../testAndConfigData/config.json");
+const BaseTest = require('./baseTest.js');
 let landingPage;
 let loginPage;
+let homePage;
 var pageTitle;
 
 describe("Test Suit To Test Login Functionality", function () {
-	browser.ignoreSynchronization = true;
 
-	function launchUrl() {
-		browser.get(ConfigData.baseUrl);
-	};
 	beforeAll(function () {
-		launchUrl();
+		BaseTest.launchUrl();
+	});
+
+	afterAll(function(){
+		BaseTest.logoutFromApplication();
 	});
 
 	it('Verifying title of landing page of Application', function () {
@@ -38,7 +41,14 @@ describe("Test Suit To Test Login Functionality", function () {
 		loginPage.enterTextMobNo_ServiceIdTextBox(userName);
 		loginPage.enterTextPasswordOTPTextBox(password);
 		loginPage.clickLoginButton();
-		expect(loginPage.getErrMsgOnWngUsrNmeOrPswd()).toEqual(errorMessage);
+    	expect(loginPage.getErrMsgOnWngUsrNmeOrPswd()).toContain(errorMessage);
+	});
+
+	it('Verufy that user should able to login with valid Credential', function () {
+		loginPage.enterTextMobNo_ServiceIdTextBox(ConfigData.username);
+        loginPage.enterTextPasswordOTPTextBox(ConfigData.password);
+        loginPage.clickLoginButton();
+        homePage = new HomePage();
 	});
 
 });

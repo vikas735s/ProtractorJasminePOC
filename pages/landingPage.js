@@ -8,7 +8,6 @@ module.exports = class LandingPage extends BasePage {
 		super(uniqueEle);
 		this.loginLink = element(by
 			.xpath(".//*[@href='https://www.airtel.in/s/selfcare/' and @class='icon-outlined-user color-red' ]"));
-
 	}
 
 	clickLoginLink() {

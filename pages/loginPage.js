@@ -1,7 +1,10 @@
 const Logger = require('../utils/logger.js');
-module.exports = class LoginPage {
+const BasePage = require('./basePage.js');
+const webElementOperationHelper = require('../utils/webElementOperationHelper.js');
+module.exports = class LoginPage extends BasePage {
 
 	constructor() {
+		super(element(by.xpath(".//*[@id='number-one']")));
 		this.loginTab = element(by
 			.xpath(".//ul[@id='loginSec']//a[text() = 'LOGIN']"));
 		this.registrationTab = element(by
@@ -9,7 +12,7 @@ module.exports = class LoginPage {
 		this.mobNo_ServiceIdTextBox = element(by.xpath(".//*[@id='number-one']"));
 		this.passwordOTPTextBox = element(by.xpath(".//*[@id='pasword']"));
 		this.loginButton = element(by.xpath(".//*[@id='loginButtonSpan']"));
-		this.errMsgOnWngUsrNmeOrPswd = element(by.xpath(".//*[@id='mobNoField' and @class='error-msg']"));
+		this.errMsgOnWngUsrNmeOrPswd = element(by.xpath(".//*[@id='genericErrLogin']"));
 	}
 
 	clickLoginTab() {
@@ -17,13 +20,11 @@ module.exports = class LoginPage {
 	}
 
 	enterTextMobNo_ServiceIdTextBox(mobNo_ServiceId) {
-		this.mobNo_ServiceIdTextBox.clear();
-		this.mobNo_ServiceIdTextBox.sendKeys(mobNo_ServiceId);
+		webElementOperationHelper.inputText(this.mobNo_ServiceIdTextBox, mobNo_ServiceId);
 	}
 
 	enterTextPasswordOTPTextBox(passwordOTP) {
-		this.passwordOTPTextBox.clear();
-		this.passwordOTPTextBox.sendKeys(passwordOTP)
+		webElementOperationHelper.inputText(this.passwordOTPTextBox, passwordOTP);
 	}
 
 	clickLoginButton() {
@@ -31,6 +32,6 @@ module.exports = class LoginPage {
 	};
 
 	getErrMsgOnWngUsrNmeOrPswd() {
-		return this.errMsgOnWngUsrNmeOrPswd.getText();
+		return webElementOperationHelper.getElementTextContent(this.errMsgOnWngUsrNmeOrPswd);
 	}
 };
