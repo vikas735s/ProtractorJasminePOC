@@ -3,12 +3,16 @@ var configData = require("./testAndConfigData/config.json");
 
 exports.config = {
 	directConnect: true,
-	specs: ['testCases/airtelLoginTest.js'],
 	allScriptsTimeout: configData.allScriptsTimeout,
 	getPageTimeout: configData.getPageTimeout,
 	framework: 'jasmine',
+	suites: {
+		airtelLoginTest: ['testCases/airtelLoginTest.js'],
+	},
+
 	jasmineNodeOpts: {
 		defaultTimeoutInterval: configData.defaultTimeoutInterval,
+		showColors: true
 	},
 
 	multiCapabilities: [{
@@ -19,6 +23,10 @@ exports.config = {
 			'args': ['incognito']
 		}
 	}],
+
+	params: {
+		//while be use when bulid tool is configured
+	},
 
 	onPrepare: function () {
 		browser.driver.manage().window().maximize();
