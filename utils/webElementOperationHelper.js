@@ -13,4 +13,12 @@ module.exports = class WebelementOperationHelper {
         this.clearText(webElement);
         webElement.sendKeys(text);
     }
+
+    static async isElementPresent(webElement) {
+         return webElement.isPresent().then(function(value)  {
+            return value;
+        })
+    }
+
+
 }
