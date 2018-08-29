@@ -16,11 +16,6 @@ describe("Test Suit To Test Login Functionality", function () {
 		BaseTest.launchUrl();
 	});
 
-	afterAll(function () {
-		let homePage = new homePage;
-		homePage.logoutfromHomePage();
-	});
-
 	it('Verifying title of landing page of Application', function () {
 		pageTitle = TestData.airtelLoginTest.landingPageTitleTest.pageTitle;
 		expect(browser.getTitle()).toEqual(pageTitle);
