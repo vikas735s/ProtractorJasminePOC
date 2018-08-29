@@ -8,6 +8,7 @@ exports.config = {
 	framework: 'jasmine',
 	suites: {
 		airtelLoginTest: ['testCases/airtelLoginTest.js'],
+		airtelPaymetBankTest: ['testCases/airtelPaymentBankTest.js']
 	},
 
 	jasmineNodeOpts: {

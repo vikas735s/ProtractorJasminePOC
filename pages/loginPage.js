@@ -1,6 +1,6 @@
 const Logger = require('../utils/logger.js');
 const BasePage = require('./basePage.js');
-const webElementOperationHelper = require('../utils/webElementOperationHelper.js');
+const WebElementOperationHelper = require('../utils/webElementOperationHelper.js');
 module.exports = class LoginPage extends BasePage {
 
 	constructor() {
@@ -20,11 +20,11 @@ module.exports = class LoginPage extends BasePage {
 	}
 
 	enterTextMobNo_ServiceIdTextBox(mobNo_ServiceId) {
-		webElementOperationHelper.inputText(this.mobNo_ServiceIdTextBox, mobNo_ServiceId);
+		WebElementOperationHelper.inputText(this.mobNo_ServiceIdTextBox, mobNo_ServiceId);
 	}
 
 	enterTextPasswordOTPTextBox(passwordOTP) {
-		webElementOperationHelper.inputText(this.passwordOTPTextBox, passwordOTP);
+		WebElementOperationHelper.inputText(this.passwordOTPTextBox, passwordOTP);
 	}
 
 	clickLoginButton() {
@@ -32,6 +32,6 @@ module.exports = class LoginPage extends BasePage {
 	};
 
 	getErrMsgOnWngUsrNmeOrPswd() {
-		return webElementOperationHelper.getElementTextContent(this.errMsgOnWngUsrNmeOrPswd);
+		return WebElementOperationHelper.getElementTextContent(this.errMsgOnWngUsrNmeOrPswd);
 	}
 };

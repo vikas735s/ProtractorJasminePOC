@@ -1,12 +1,13 @@
 {
     "baseUrl": "https://www.airtel.in/",
     "loginPageUrl":"https://www.airtel.in/s/selfcare",
-    "username":9876543210,
-    "password":"kit@qwer",
-    "implicitlyWaitTimeout": 60000,
-    "explicitlyWaitTimeout": 60000,
-    "defaultTimeoutInterval": 60000,
-    "getPageTimeout": 60000,
+    "username":982,
+    "password":"34",
+    "mPin":7689,
+    "implicitlyWaitTimeout": 50000,
+    "explicitlyWaitTimeout": 50000,
+    "defaultTimeoutInterval": 70000,
+    "getPageTimeout": 50000,
     "pageLoadTimeout":60000,
-    "allScriptsTimeout": 60000
+    "allScriptsTimeout": 70000
 }

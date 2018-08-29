@@ -11,5 +11,11 @@
             "password": "airtel@8909",
             "errorMessage": "User not registered. Please register"
         }
+    },
+    "airtelPaymentBankTest":{
+        "airtelMoneybalanceTest":{
+            "availableBalance":"0.00"
+
     }
+}
 }

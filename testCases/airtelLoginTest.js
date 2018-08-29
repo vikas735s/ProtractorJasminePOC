@@ -16,8 +16,9 @@ describe("Test Suit To Test Login Functionality", function () {
 		BaseTest.launchUrl();
 	});
 
-	afterAll(function(){
-		BaseTest.logoutFromApplication();
+	afterAll(function () {
+		let homePage = new homePage;
+		homePage.logoutfromHomePage();
 	});
 
 	it('Verifying title of landing page of Application', function () {
@@ -33,22 +34,25 @@ describe("Test Suit To Test Login Functionality", function () {
 		expect(browser.getTitle()).toEqual(pageTitle);
 	});
 
+	it('Verify that user should able to login with valid Credential', function () {
+		loginPage = new LoginPage();
+		loginPage.enterTextMobNo_ServiceIdTextBox(ConfigData.username);
+		loginPage.enterTextPasswordOTPTextBox(ConfigData.password);
+		loginPage.clickLoginButton();
+		homePage = new HomePage();
+		homePage.logoutfromHomePage();
+	});
+
 	it('Verify that user should not able to login with invalid credential', function () {
 		loginPage = new LoginPage();
+		//geting data from testData
 		var userName = TestData.airtelLoginTest.failedloginTest.userName;
 		var password = TestData.airtelLoginTest.failedloginTest.password;
 		var errorMessage = TestData.airtelLoginTest.failedloginTest.errorMessage;
 		loginPage.enterTextMobNo_ServiceIdTextBox(userName);
 		loginPage.enterTextPasswordOTPTextBox(password);
 		loginPage.clickLoginButton();
-    	expect(loginPage.getErrMsgOnWngUsrNmeOrPswd()).toContain(errorMessage);
-	});
-
-	it('Verufy that user should able to login with valid Credential', function () {
-		loginPage.enterTextMobNo_ServiceIdTextBox(ConfigData.username);
-        loginPage.enterTextPasswordOTPTextBox(ConfigData.password);
-        loginPage.clickLoginButton();
-        homePage = new HomePage();
+		expect(loginPage.getErrMsgOnWngUsrNmeOrPswd()).toContain(errorMessage);
 	});
 
 });

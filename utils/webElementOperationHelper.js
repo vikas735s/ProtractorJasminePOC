@@ -1,9 +1,14 @@
 const Logger = require('../utils/logger.js');
 module.exports = class WebelementOperationHelper {
 
-    static getElementTextContent(webElement) {
+    static async getElementTextContent(webElement) {
         return browser.executeScript('return arguments[0].textContent', webElement);
     }
+
+    static getTextofWebelement(webElement){
+        //it must me handled 
+        return webElement.getText();
+    };
 
     static clearText(webElement) {
         webElement.clear();

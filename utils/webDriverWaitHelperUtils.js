@@ -9,4 +9,11 @@ module.exports = class WebDriverWaitUtils {
         let condition = EC.visibilityOf(elementLocator);
         browser.wait(condition, TestData.explicitlyWaitTimeout);
     }
+
+    static waitForElementTobeClickable(elementLocator){
+        Logger().info('Wait for Element to be clickable for element is called');
+        let EC = ExpectedConditions;
+        let condition = EC.elementToBeClickable(elementLocator);
+        browser.wait(condition, TestData.explicitlyWaitTimeout);
+    }
 }
