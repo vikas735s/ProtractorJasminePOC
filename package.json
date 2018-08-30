@@ -12,7 +12,8 @@
     "typescript": "^3.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "updatedriver": "webdriver-manager update",
+    "test" : "protractor conf.js"
   },
   "author": "vikas",
   "license": "ISC"
