@@ -6,7 +6,6 @@ Steps to execute
 3. Install VS code
 4. Take clone of latest code
 5. Open project in VS code as folder
-6. Update webdriver-manager by using cmd "webdriver-manager update"
-7. Once all above prerequisite  are done then execute your testcases using cmd "protractor conf.js"
+6. Once all above prerequisite  are done then execute your testcases using cmd "npm run updateAndRunTest"
 
 Note- Please provide valid credential in config.json
