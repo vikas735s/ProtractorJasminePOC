@@ -4,7 +4,7 @@ const WebElementOperationHelper = require('../utils/webElementOperationHelper.js
 module.exports = class LoginPage extends BasePage {
 
 	constructor() {
-		super(element(by.xpath(".//*[@id='number-one']")));
+		super(element(by.css("#loginButtonSpan")));
 		this.loginTab = element(by
 			.xpath(".//ul[@id='loginSec']//a[text() = 'LOGIN']"));
 		this.registrationTab = element(by

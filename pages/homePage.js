@@ -7,10 +7,10 @@ const WebelementOperationHelper = require('../utils/webElementOperationHelper');
 module.exports = class HomePage extends BasePage {
 
     constructor() {
-        super(element(by.xpath(".//*[contains(@class, 'profile-icon-sm mr-10')]")));
+        super(element(by.css("span[data-ng-bind='vm.headData.data.customerName | titleCase']")));
         this.airtelLogo = element(by.xpath(".//a[@class='navbar-brand']//img[@alt='airtel_logo']"));
-        this.profileIcon = element(by.xpath(".//i[@class='icon icon-outlined-user profile-icon-sm mr-10']"));
-        this.logoutLink = element(by.xpath(".//a[@ng-click='vm.logout()' and contains(@href, 'http')]"));
+        this.profileIcon = element(by.css("span[data-ng-bind='vm.headData.data.customerName | titleCase']"));
+        this.logoutLink = element(by.css("a[href='https://www.airtel.in/pkmslogout?redirectURL=https://www.airtel.in/s/selfcare?normalLogin']"));
         this.overViewTab = element(by.xpath(".//p[text() = 'OVERVIEW']"));
         this.paymentTab = element(by.xpath(".//*[@id='topElement']//span[text() = 'Payments Bank']"));
         this.prepaidTab = element(by.xpath(".//div[text()= 'Prepaid']"));
@@ -67,7 +67,8 @@ module.exports = class HomePage extends BasePage {
     }
 
     logoutfromHomePage() {
-        this.clickProfileIcon()
+        this.clickProfileIcon();
+        WebDriverWait.waitForElement(this.logoutLink);
         this.clickLogoutLink();
     }
 

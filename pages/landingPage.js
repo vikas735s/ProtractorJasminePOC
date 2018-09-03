@@ -4,10 +4,9 @@ const WebDriverWaitUtils = require('../utils/webDriverWaitHelperUtils.js');
 module.exports = class LandingPage extends BasePage {
 
 	constructor() {
-		var uniqueEle = element(by.xpath(".//*[@id='airtelMegaMenu']//img"));
+		var uniqueEle = element(by.css(".navbar-brand>img"));
 		super(uniqueEle);
-		this.loginLink = element(by
-			.xpath(".//*[@href='https://www.airtel.in/s/selfcare/' and @class='icon-outlined-user color-red' ]"));
+		this.loginLink = element(by.css(".icon-outlined-user.color-red"));
 	}
 
 	clickLoginLink() {
