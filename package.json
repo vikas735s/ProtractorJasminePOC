@@ -12,9 +12,10 @@
     "typescript": "^3.0.1"
   },
   "scripts": {
-    "updatedriver": "webdriver-manager update",
+    "updateChrome": "webdriver-manager update --versions.chrome 2.40",
+    "updateGecko": "webdriver-manager update --versions.gecko v0.21.0",
     "test": "protractor conf.js",
-    "updateAndRunTest": "npm install && webdriver-manager update && protractor conf.js"
+    "updateAndRunTest": "npm install && npm run updateChrome && npm run updateGecko && npm run test"
   },
   "author": "vikas",
   "license": "ISC"
