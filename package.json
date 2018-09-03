@@ -13,7 +13,8 @@
   },
   "scripts": {
     "updatedriver": "webdriver-manager update",
-    "test" : "protractor conf.js"
+    "test": "protractor conf.js",
+    "updateAndRunTest": "npm install && webdriver-manager update && protractor conf.js"
   },
   "author": "vikas",
   "license": "ISC"
