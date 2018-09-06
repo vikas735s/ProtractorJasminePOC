@@ -14,6 +14,7 @@ module.exports = class BasePage {
     }
 
     isPageLoaded(uniqueEle) {
+        WebDriverWait.waitUntilDocumentStateComplete();
         WebDriverWait.waitForElement(uniqueEle);
         uniqueEle.isPresent().then(function (isPresent) {
             if (isPresent) {
